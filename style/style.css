@@ -9,6 +9,7 @@
 
 body{
     background: #000;
+    overflow-x: hidden;
 }
 
 header{
@@ -56,11 +57,15 @@ header #toggle:after{
     height: 2px;
     background: #FFF;
 }
+.banner_sec{
+    clip-path: polygon(0 8%, 100% 0, 100% 89%, 0 100%);
+}
 
 .banner{
     position: relative;
     width: 100%;
-    background: url('bg1.png');
+    background: url('bg1.png') no-repeat;
+    overflow: hidden;
     min-height: 100vh;
     padding: 100px;
     background-size: cover;
@@ -85,11 +90,63 @@ header #toggle:after{
 .banner.active{
     transform: translateX(-400px);
 }
+.banner_blog{
+    clip-path: polygon(0 0, 100% 11%, 100% 100%, 0 92%);
+}
+.banner_blog{
+    position: relative;
+    width: 100%;
+    /* The image used */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1024&q=80);
+    position: relative;
+    /* Full height */
+    height: 80%; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 100px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 20000;
+}
+
+.banner_blog.active header #toggle:before{
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.banner_blog.active header #toggle:after{
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.banner_blog.active{
+    transform: translateX(-400px);
+}
 
 .banner_sec{
     position: relative;
     width: 100%;
-    background: url('bg1.png');
+    /* The image used */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60);
+    position: relative;
+    /* Full height */
+    height: 80%; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     min-height: 100vh;
     padding: 100px;
     background-size: cover;
@@ -115,6 +172,7 @@ header #toggle:after{
 .banner_sec.active{
     transform: translateX(-400px);
 }
+
 
 #navigation{
     position: fixed;
@@ -201,6 +259,15 @@ header #toggle:after{
     break-inside: avoid;
 }
 
+.container .box-box{
+    width: 100%;
+    margin: 20px 20px 20px;
+    padding: 10px;
+    background: #000;
+    overflow: hidden;
+    break-inside: avoid;
+    text-align: center;
+}
 .container .box img{
     max-width: 100%;
 }
@@ -223,79 +290,15 @@ header #toggle:after{
 }
 
 h1.bonus {
-    font-size: 4em;
-    text-shadow:
-       3px  3px 0 #000,
-      -1px -1px 0 #000,  
-       1px -1px 0 #000,
-      -1px  1px 0 #000,
-       1px  1px 0 #000;
+    font-size: 5.4em;
   }
 
-  .clip-text {
-    font-size: 6em;
-    font-weight: bold;
-    line-height: 1;
-    position: relative;
-    display: inline-block;
-    margin: .25em;
-    padding: .5em .75em;
-    text-align: center;
-    /* Color fallback */
-    color: #fff;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.clip-text:before,
-.clip-text:after {
-    position: absolute;
-    content: '';
-}
-
-/* Background */
-.clip-text:before {
-    z-index: -2;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: inherit;
-}
-
-/* Text Background (black zone) */
-.clip-text:after {
-    position: absolute;
-    z-index: -1;
-    top: .125em;
-    right: .125em;
-    bottom: .125em;
-    left: .125em;
-    background-color: #000;
-}
-
-/* Change the background position to display letter when the black zone isn't here */
-.clip-text--no-textzone:before {
-    background-position: -.75em 0;
-}
-
-.clip-text--no-textzone:after {
-    content: none;
-}
-
-.clip-text_fifteen {
-    background-image: url(https://picsum.photos/480/200?random=12);
-}
-
-.clip-text_one {
-    background-image: url(https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60);
-}
-  
-  @supports (-webkit-text-stroke: 1px black) {
+  @supports (-webkit-text-stroke: 2px black) {
     h1 {
-      -webkit-text-stroke: 2px #A84646;
-      -webkit-text-fill-color: black;
+      -webkit-text-stroke: 3px #A84646;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
     }
   }
 
@@ -815,4 +818,16 @@ ul li a:hover:before{
           opacity: 1;
       }
       
-   
+      .parallax {
+        /* The image used */
+        background-image: url(https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60) !important;
+        position: relative;
+        /* Full height */
+        height: 80%; 
+      
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
