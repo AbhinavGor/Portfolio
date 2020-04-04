@@ -1,192 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "stylesheet" href = "./style/style.css">
-    <link rel="icon" href="./style/icon.png">
-    <script src="https://kit.fontawesome.com/e57fcbd46d.js" crossorigin="anonymous"></script>
-    <title>Abhinav Gorantla</title>
-</head>
-<body>
-        
-    <section class="loader">
-        <div class="seg">{</div><div class= "seg">}</div>
-    </section>
-    <section class = 'main'>
-        <section class = "banner" id = "sec">
-            <header>
-                <a href = "#" class = "logo"><img src = './style/logo.png'></a>
-                <div id = "toggle" onclick="toggle();"></div>
-            </header>
-            <div class="content">
-                <br><br><br><br>
-                <h2>Hello World,<br>I'm<span> Abhinav Gorantla</span></h2>
-                <p>I am a freshman computer science student at VIT University, Vellore. I am a web developer and designer. Making great projects to solve the ravelling problems of the world is what I do. I am proficient in Node JS, Mongo DB, Javascript and React JS.
-                </p>
-                <a href = "#">Know More</a>          
-            </div>
-            <ul class = "sci">
-                <li><a href="https://www.facebook.com/abhinav.gorantla.22"><img src ="./style/facebook.png"></a></li>
-                <li><a href="https://github.com/AbhinavGor"><img src ="./style/github.png"></a></li>
-                <li><a href="https://www.instagram.com/abh_nav.skywalker/"><img src ="./style/instagram.png"></a></li>
-                <li><a href="https://twitter.com/Abhinav_Gor"><img src ="./style/twitter.png"></a></li>
-            </ul>
-            
-        </section>
-        <section class="banner_sec">
-            <h1 class="bonus" id ="projects">PROJECTS</h1>
-            <div class="container">
-                <div class="box">
-                    <img src = "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-                    <h2>Realtime Chat App</h2>
-                    <h4>Socket.io React JS</h4>
-                    <p>A realtime chat application built using Socket.io and React JS. Rooms can be created as per requirement and users can be added
-                        with custom nicknames.<br>
-                        <div class="button_cont" align="center"><a class="example_c" href="https://github.com/AbhinavGor/Realtime-Chat-App" target="_blank" rel="nofollow noopener">Take me there!</a></div>                    
-                    </p>
-                </div>
-                <div class="box">
-                    <img src = "./style/login.jpg">
-                    <h2>Article Submission Portal</h2>
-                    <h4>PassportJS&nbsp;&nbsp;&nbsp;NodeJS&nbsp;&nbsp;&nbsp; MongoDB</h4>
-                    <p>A login portal with authentication powered by Passport JS and connected to a Mongo Atlas database. This application allows the users to register and login to submit 
-                        any articles or text to the server. This was a project I built for <a href = "https://www.thepcvit.com/">THEPC-VIT</a>.<br>
-                        <div class="button_cont" align="center"><a class="example_c" href="https://github.com/AbhinavGor/Blog-with-Auth" target="_blank" rel="nofollow noopener">Take me there!</a></div>                    
-                    </p>
-                </div>
-                <div class="box">
-                    <img src = "https://images.unsplash.com/photo-1462045504115-6c1d931f07d1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-                    <h2>The Pi Game</h2>
-                    <h4>Flask Python</h4>
-                    <p>Learn upto 10,000 decimal digits of pi by using this interactive web application built on the Flask framework
-                        and python.<br>
-                        <div class="button_cont" align="center"><a class="example_c" href="https://github.com/AbhinavGor/TPG2.0" target="_blank" rel="nofollow noopener">Take me there!</a></div>                    
-                    </p>
-                </div>
-                <div class="box">
-                    <img src = "https://images.unsplash.com/photo-1547190027-9156686aa2f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-                    <h2>Safe Pass</h2>
-                    <h4>PHP</h4>
-                    <p>Generate safe and secure passwords using PHP at <a href = "http://safepasss.000webhostapp.com/index.php">SafePass.com</a>.<br>
-                        <div class="button_cont" align="center"><a class="example_c" href="https://github.com/AbhinavGor/SafePass.com" target="_blank" rel="nofollow noopener">Take me there!</a></div>                    
-                    </p>
-                </div>
-                <div class="box">
-                    <img src = "https://images.unsplash.com/photo-1569235186275-626cb53b83ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
-                    <h2>File Sorter 2.0</h2>
-                    <h4>NodeJS Python</h4>
-                    <p>A file sorting web application to declutter your downloads folder. This app does the actual file sorting with python.
-                        NodeJS is used here to increase the flexibility for the users.<br>
-                        <div class="button_cont" align="center"><a class="example_c" href="https://github.com/AbhinavGor/File-Sorter-2.0" target="_blank" rel="nofollow noopener">Take me there!</a></div>                    
-                    </p>
-                </div>                         
-            </div>
-            
-            <br><br><br><br>    
-        </section>
-        <div class="banner_blog">
-            <h1 class="bonus">BLOG</h1>
-        </div>
-        <div id = "navigation">
-            <ul>
-                <li data-text = "Home"><a href = "#">Home</a></li>
-                <li data-text = "About"><a href = "#">About</a></li>
-                <li data-text = "Projects"><a href = "#projects">Projects</a></li>
-                <li data-text = "Blog"><a href = "#">Blog</a></li>
-                <li data-text = "Contact"><a href = "#">Contact</a></li>
-            </ul>
-        </div>
-    
-        <!-- ==============================================
-            CONTACT
-            =============================================== -->
-            <section id="contact" class="add-padding ">
-            
-                <div class="container text-center">
-                    
-                    <div class="row">
-                    
-                        <div class="col-sm-6 col-md-5 text-right scrollimation fade-up d1">
-                        
-                            <h1 class="big-text">Contact Me</h1>
-                            
-                            <p class="lead">Web Developer. Designer.</p>
-                            <br>
-                            <p>JavaScript, Node.js, Express.js, HTML5, CSS3, PHP, Git, GitHub, Heroku, Responsive/Mobile Development.
-                            <br><br>
-                            <p>Please feel free to contact me with questions, comments or collaborations.</p>
-                            <br>
-                            <p>For more information, <a href="https://abhinavgor.netlify.com/" target="_blank">visit my blog.</a></p>
-                        
-                        </div>
-                    
-                        <!--=== Contact Form ===-->
-    
-                        <form id="contact-form" class="col-sm-6 scrollimation fade-left d3" >
-                            
-                            <div class="form-group">
-                              <label class="control-label" for="contact-name">Name</label>
-                              <div class="controls">
-                                <input id="contact-name" name="contactName" placeholder="Your name" class="form-control requiredField" data-new-placeholder="Your name" type="text" data-error-empty="Please enter your name">
-                                <i class="fa fa-user"></i>
-                              </div>
-                            </div><!-- End name input -->
-                            
-                            <div class="form-group">
-                              <label class="control-label" for="contact-mail">Email</label>
-                              <div class=" controls">
-                                <input id="contact-mail" name="email" placeholder="Your email" class="form-control requiredField" data-new-placeholder="Your email" type="email" data-error-empty="Please enter your email" data-error-invalid="Invalid email address">
-                                <i class="fa fa-envelope"></i>
-                              </div>
-                            </div><!-- End email input -->
-                            
-                            <div class="form-group">
-                              <label class="control-label" for="contact-message">Message</label>
-                                <div class="controls">
-                                    <textarea id="contact-message" name="comments"  placeholder="Your message" class="form-control requiredField" data-new-placeholder="Your message" rows="6" data-error-empty="Please enter your message"></textarea>
-                                    <i class="fa fa-comment"></i>
-                                </div>
-                            </div><!-- End textarea -->
-                            
-                            <p><button name="submit" type="submit" class="btn btn-color2 btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-paper-plane"></i>Send Message</button></p>
-                            <input type="hidden" name="submitted" id="submitted" value="true" />
-                            
-                        </form><!-- End contact-form -->
-                        
-                    </div>
-                    
-                </div>
-            
-            </section>
-            
-            <!-- ==============================================
-            FOOTER
-            =============================================== -->	
-            
-            <footer id="main-footer" class="add-padding border-top-color2">
-            
-                <div class="container">
-                    <p class="text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; 2020 - Abhinav Gorantla</p>
-                </div>
-                
-            </footer>
-    </section>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Abhinav Gorantla</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<script type = "text/javascript">
-    function toggle(){
-        var sec = document.getElementById('sec');
-        var nav = document.getElementById('navigation');
-        sec.classList.toggle('active')
-        nav.classList.toggle('active')
-    }
-    //Need to make a function to get rid of preloader
-    window.addEventListener('load', () => {
-        const load = document.querySelector('.loader');
-        const main = document.querySelector('.main');
-        main.classList.add('load-finish-body');
-        load.classList.add('load-finish');
-    })
-</script>
-</body>
+		<!-- particles.js container --> 
+		<div id="particles-js">
+			<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>I am<br />
+						Abhinav Gorantla</h1>
+						<p>I am a freshman computer science student at VIT University, Vellore. My area of expertise is web development and designing. Making great projects to solve the ravelling problems of the world is what I do. I am proficient in Node JS, Mongo DB, Javascript and React JS. </p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Abhinav</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Projects</a></li>
+							<li><a href="generic.html">Blog</a></li>
+							<li><a href="#contact">Contact Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Posts -->
+						<header class="major"><h1>My Projects</h1></header>
+							<section class="posts">
+								<article>
+									<header>
+										<span class="date">April 4, 2020</span>
+										<h2>Realtime Chat Application</h2>
+										<h3 style="opacity: 0.6;"> NodeJS Socket.io </h3>
+									</header>
+									<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1080&q=80" alt="" /></a>
+									<p>This realtime chat application contains chat rooms controlled by the admin. Users can choose a nickname on login and choose to be in any of the available chat rooms.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">View Code</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">March 20, 2020</span>
+										<h2>Article Submission Portal</h2>
+										<h3 style="opacity: 0.6;"> NodeJS PassportJS MongoDB </h3>
+									</header>
+									<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="" /></a>
+									<p>A login portal with authentication powered by Passport JS and connected to a Mongo Atlas database. This application allows the users to register and login to submit any articles or text to the server. This was a project I built for <a href = 'https://www.thepcvit.com/'>THEPC-VIT</a>.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button">View Code</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">December 15, 2019</span>
+										<h2>SafePass.com</h2>
+										<h3 style="opacity: 0.6;"> PHP </h3>
+									</header>
+									<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1522251670181-320150ad6dab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1080&q=60" alt="" /></a>
+									<p>A random password generating website built using PHP backend.</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/AbhinavGor/SafePass.com" class="button">View Code</a></li>
+										<li><a href="http://safepasss.000webhostapp.com/" class="button">Visit the Website</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">December 15, 2019</span>
+										<h2>File Sorter 2.0</h2>
+										<h3 style="opacity: 0.6;"> NodeJS </h3>
+									</header>
+									<a href="#" class="image fit"><img src="https://images.unsplash.com/photo-1569235186275-626cb53b83ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1080&q=60" alt="" /></a>
+									<p>A file sorting web application to declutter your downloads folder. This app does the actual file sorting with python. NodeJS is used here to increase the flexibility for the users.</p>
+									<ul class="actions special">
+										<li><a href="https://github.com/AbhinavGor/File-Sorter-2.0" class="button">View Code</a></li>
+									</ul>
+								</article>
+							</section>
+							<br><br>
+						</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section id='contact'>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+		</div>
+
+		<!-- Scripts -->
+			<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>

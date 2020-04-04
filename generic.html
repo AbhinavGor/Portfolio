@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Blog - Abhinav Gorantla</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Abhinav</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">My Projects</a></li>
+							<li class="active"><a href="generic.html">Blog</a></li>
+							<li><a href="#contact">Contact Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date">January 25, 2020</span>
+									<h1>SafePass.com</h1>
+									<p>Learn how PHP can generate safe &amp; secure passwords.</p>
+								</header>
+								<div class="image main"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="" /></div>
+								<p>SafePass.com is a website with a PHP backend which generates random secure passwords according to your requirements. </p>
+								<p>Here is a brief explanation of all the functions I used to build this website and how they work. The website allows users to generate secure passwords. I started up with setting up checkboxes to allow users to select what all sets of characters they want in their passwords. The character set options include:</p>
+								<pre><code>if(isset($_POST['Uletters']))
+{
+	$charset = $charset.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+}
+if(issert($_POST['Lletters']))
+{
+	$charset = $charset.'abcdefghijklmnopqrstuvwxyz'
+}
+if(isset($_POST['Numbers']))
+{
+	$charset = $charset.'1234567890';
+}
+if(isset($_POST['Special']))
+{
+	$charset = $charset.'%$&@!\'\"\\/.,[](){}^~`'
+}
+							</code></pre>
+							<p>Users get to select the character select the character sets which get appended to the initial empty set of characters. This set of characters then get passed on to a random string generator. This "random string generator" I'm mentioning here is basically a string shuffler function pre-defined in PHP. The character set that we pass onto the random string generator is nothing but a very long string of integers, characters and special characters. The exact syntax of the code needed to shuffle the string is "str_shuffle($charset)". This set of characters gets shuffled by the inbuilt PHP function and then sent on for further processing. This "further processing" involves MD5 Hashing. </p>
+							<p>I'm not going to discuss more on <a href = 'https://en.wikipedia.org/wiki/MD5'>MD 5 Hashing</a> as that would compromise the integrity of the website. The form handling method used here is POST method. This ensures that sensitive details aren't given away from the URL. MD5 hashing is also not applied for all the combinations of character sets provided by the user. </p>
+							<p>The user gets a password according to their needs after submitting the form. This is a screenshot of the final hosted website which you can find here. </p>
+							<p> My future plans for this project include using better hashing algorithms like SHA 1 or using an actual crytography agorithm instead of a message-digest algorithm like MD5 or SHA.</p>
+							<p>You can find all the documentation and code for this website <a href = 'https://github.com/AbhinavGor/SafePass.com'>here</a>.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section id = 'contact'>
+							<form method="post" action="#">
+								<div class="fields">
+									<div class="field">
+										<label for="name">Name</label>
+										<input type="text" name="name" id="name" />
+									</div>
+									<div class="field">
+										<label for="email">Email</label>
+										<input type="text" name="email" id="email" />
+									</div>
+									<div class="field">
+										<label for="message">Message</label>
+										<textarea name="message" id="message" rows="3"></textarea>
+									</div>
+								</div>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</form>
+						</section>
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>1234 Somewhere Road #87257<br />
+								Nashville, TN 00000-0000</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">(000) 000-0000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">info@untitled.tld</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
