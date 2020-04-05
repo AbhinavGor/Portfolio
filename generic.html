@@ -82,28 +82,7 @@ if(isset($_POST['Special']))
 									<li>Flask framework in Python</li>
 									<li>Basic knowledge of GET, POST, PUT and DELETE methods</li>
 								</ol>
-								<pre><code>if(isset($_POST['Uletters']))
-{
-	$charset = $charset.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-}
-if(issert($_POST['Lletters']))
-{
-	$charset = $charset.'abcdefghijklmnopqrstuvwxyz'
-}
-if(isset($_POST['Numbers']))
-{
-	$charset = $charset.'1234567890';
-}
-if(isset($_POST['Special']))
-{
-	$charset = $charset.'%$&@!\'\"\\/.,[](){}^~`'
-}
-							</code></pre>
-							<p>Users get to select the character select the character sets which get appended to the initial empty set of characters. This set of characters then get passed on to a random string generator. This "random string generator" I'm mentioning here is basically a string shuffler function pre-defined in PHP. The character set that we pass onto the random string generator is nothing but a very long string of integers, characters and special characters. The exact syntax of the code needed to shuffle the string is "str_shuffle($charset)". This set of characters gets shuffled by the inbuilt PHP function and then sent on for further processing. This "further processing" involves MD5 Hashing. </p>
-							<p>I'm not going to discuss more on <a href = 'https://en.wikipedia.org/wiki/MD5'>MD 5 Hashing</a> as that would compromise the integrity of the website. The form handling method used here is POST method. This ensures that sensitive details aren't given away from the URL. MD5 hashing is also not applied for all the combinations of character sets provided by the user. </p>
-							<p>The user gets a password according to their needs after submitting the form. This is a screenshot of the final hosted website which you can find here. </p>
-							<p> My future plans for this project include using better hashing algorithms like SHA 1 or using an actual crytography agorithm instead of a message-digest algorithm like MD5 or SHA.</p>
-							<p>You can find all the documentation and code for this website <a href = 'https://github.com/AbhinavGor/SafePass.com'>here</a>.</p>
+								
 							</section>
 
 					</div>
