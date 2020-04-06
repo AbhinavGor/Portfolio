@@ -3216,8 +3216,7 @@ input, select, textarea {
 
 /* Wrapper */
 body{
-	background-color: #7D8AB5;
-			background-image: url("../../images/background.svg"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/background.svg");
+	background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
 			background-size: cover,								auto,														100% auto;
 			background-position: center,								center,														top center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
