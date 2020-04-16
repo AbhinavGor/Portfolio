@@ -120,6 +120,9 @@
 										<label for="message">Message</label>
 										<textarea name="message" id="message" rows="3"></textarea>
 									</div>
+									<div class="field">
+										<input id = 'ipAdd' hidden>
+									</div>
 								</div>
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
@@ -170,6 +173,17 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				  const ipFormInput = document.getElementById('ipAdd');
+
+				fetch('https://api.ipify.org?format=json')
+				.then((response) => { return response.json() })
+				.then((json) => {
+				let ip = json.ip;
+				ipFormInput.value = ip;
+				})
+				.catch((err) => { console.log(`Error getting IP Address: ${err}`) })
+			</script>
 
 	</body>
 </html>
