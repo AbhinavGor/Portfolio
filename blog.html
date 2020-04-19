@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Blog - Abhinav Gorantla</title>
+		<title>Abhinav Gorantla</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -9,7 +9,9 @@
 	</head>
 	<body class="is-preload">
 
-		<!-- Wrapper -->
+		<!-- particles.js container --> 
+		<div class="particles-js">
+			<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
@@ -34,109 +36,49 @@
 
 				<!-- Main -->
 					<div id="main">
+                        <article class="post featured">
+                            <header class="major">
+                                <span class="date">January 25, 2020</span>
+                                <h1>SafePass.com</h1>
+                                <p>SafePass.com is a website with a PHP backend which generates random secure passwords according to your requirements. </p>
+                            </header>
+                            <div class="image main"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="" /></div>
+                            <ul class="actions special">
+                                <li><a href="/php.html" class="button large">View Blog</a></li>
+                            </ul>
+                        </article>
 
-						<!-- Post -->
-							<section class="post">
-								<header class="major">
-									<span class="date">January 25, 2020</span>
-									<h1>SafePass.com</h1>
-									<p>Learn how PHP can generate safe &amp; secure passwords.</p>
-								</header>
-								<div class="image main"><img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="" /></div>
-								<p>SafePass.com is a website with a PHP backend which generates random secure passwords according to your requirements. </p>
-								<p>Here is a brief explanation of all the functions I used to build this website and how they work. The website allows users to generate secure passwords. I started up with setting up checkboxes to allow users to select what all sets of characters they want in their passwords. The character set options include:</p>
-								<pre><code>if(isset($_POST['Uletters']))
-{
-	$charset = $charset.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-}
-if(issert($_POST['Lletters']))
-{
-	$charset = $charset.'abcdefghijklmnopqrstuvwxyz'
-}
-if(isset($_POST['Numbers']))
-{
-	$charset = $charset.'1234567890';
-}
-if(isset($_POST['Special']))
-{
-	$charset = $charset.'%$&@!\'\"\\/.,[](){}^~`'
-}
-							</code></pre>
-							<p>Users get to select the character select the character sets which get appended to the initial empty set of characters. This set of characters then get passed on to a random string generator. This "random string generator" I'm mentioning here is basically a string shuffler function pre-defined in PHP. The character set that we pass onto the random string generator is nothing but a very long string of integers, characters and special characters. The exact syntax of the code needed to shuffle the string is "str_shuffle($charset)". This set of characters gets shuffled by the inbuilt PHP function and then sent on for further processing. This "further processing" involves MD5 Hashing. </p>
-							<p>I'm not going to discuss more on <a href = 'https://en.wikipedia.org/wiki/MD5'>MD 5 Hashing</a> as that would compromise the integrity of the website. The form handling method used here is POST method. This ensures that sensitive details aren't given away from the URL. MD5 hashing is also not applied for all the combinations of character sets provided by the user. </p>
-							<p>The user gets a password according to their needs after submitting the form. This is a screenshot of the final hosted website which you can find here. </p>
-							<p> My future plans for this project include using better hashing algorithms like SHA 1 or using an actual crytography agorithm instead of a message-digest algorithm like MD5 or SHA.</p>
-							<p>You can find all the documentation and code for this website <a href = 'https://github.com/AbhinavGor/SafePass.com'>here</a>.</p>
+						<!-- Posts -->
+							<section class="posts">
+								<article>
+									<header>
+										<span class="date">December 15, 2019</span>
+										<h2>Create a REST API using python</h2>
+									</header>
+									<div class="image main"><img src="https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" /></div>
+									<p>How do you create a REST API using python?</p>
+									<ul class="actions special">
+										<li><a href="/rest.html" class="button">View Blog</a></li>
+									</ul>
+								</article>
+								<article>
+									<header>
+										<span class="date">April 24th, 2020</span>
+										<h2>Visualize Data using Seaborn</h2>
+									</header>
+									<div class="image main"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1080&q=60" alt="" /></div>
+									<p>Use Seaborn to visualize and make your data presentable.</p>
+									<ul class="actions special">
+										<li><a href="#" class="button" >Coming Soon</a></li>
+									</ul>
+								</article>
 							</section>
-
-							<section class="post">
-								<header class="major">
-									<span class="date">December 15, 2019</span>
-									<h1>Create a REST API</h1>
-									<p>My first try at creating a REST API.</p>
-								</header>
-								<div class="image main"><img src="https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" /></div>
-								<p>This blog is a brief description of the process I followed to create a REST API.Prior knowledge required:</p>
-								<ol>
-									<li>Python</li>
-									<li>Flask framework in Python</li>
-									<li>Basic knowledge of GET, POST, PUT and DELETE methods</li>
-								</ol>
-								<p>I started off reading what actually a REST API was. This is what I found out:</p>
-
-								<hr>
-								<blockquote>
-									A REST Application allows users access some of it's exposed data. This data is exposed with the help of something called an "endpoint". In this way users can access data provided by the developer without compromising sensitive data.
-								</blockquote>
-								<hr>
-								<p>A common example of REST API is the Google search bar we find on some third party websites like <a href = 'https://www.geeksforgeeks.org/'>Geeks for Geeks</a>. You can have a question at this point.</p>
-								<blockquote>Why can't we use iframes?</blockquote>
-								<p>Google has doesn't support iframes. You need to use use the Custom Search JSON API to develop websites and applications to retrieve data from a google search. Many other service providers have started doing this. Now let's get back to my project. The next thing I did after knowing what a REST API was that I read some Medium articles on that topic and then started off by taking that as my starting point.
-								<br/>The actual process:</p>
-								<pre><code>from flask import Flask
-from flask_restful import Api, Resource, response</code></pre>
-								<p>Here, we are importing the Flask module. Observe the capital letters in the words Api, Flask and Resource. This shows that we are importing a class. After importing these required modules, we then create a sample data space. Usually for real world applications, we link a database using mySQL but here, for this mini project, a sample data with three or four users will also get the job done.</p>
-								<pre><code>users = [
-	{
-		"uname": "Abhinav",
-		"age":18,
-		"password": "Abhinav123",
-		"branch": "Computer Science",
-		"hostel": "M111"
-	},
-	{
-		"uname": "Aditya",
-		"age":18,
-		"password": "Aditya123",
-		"branch": "Computer Science",
-		"hostel": "M112"
-	},
-	{
-		"uname": "Sampath",
-		"age":18,
-		"password": "Sampath123",
-		"branch": "Computer Science",
-		"hostel": "M113"
-	}</code></pre>
-							<p> Next I created a class "Users" which has all the endpoints where data can be accessed using the API. I defined the GET, POST, PUT and DELETE functions. Each of them had different sets of input data i.e different URL endpoints as you will see below. I wanted to design the GET method to make the user sign in with their account. But, as I did not know how to encryot the user passwords, I changed it's function to get the details of the user.</p>
-							<pre><code>class User(Resource):
-	#Used to get details / sign in a user
-
-	def get(self, uname, password):
-		for user in users:
-			if(uname == user['uname'] and password == user ["password"]):
-				return "Logged in as {}.".format(user['uname']), 200
-			elif(uname == user['uname'] and password != user['password']);
-				return "Password incorrect."
-			return "User not found", 404</code></pre>
-							<p>The GET method takes in user password and username as it's inputs and gives out the message "Logged in as {Username}." as output. If the password is wrong then, it returns the message "Password incorrect.". All the other methods are listed below and are self explanatory.</p>
-							</section>
-
-					</div>
+							<br><br>
+						</div>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<section id = 'contact'>
+						<section id='contact'>
 							<form  method='POST' data-netlify='true' action='message.html'>
 								<div class="fields">
 									<div class="field">
@@ -164,9 +106,8 @@ from flask_restful import Api, Resource, response</code></pre>
 							<section class="alt">
 								<h3>Address</h3>
 								<p>Men's Hostel<br />
-								VIT University,<br />
-								Vellore, Tamil Nadu<br/>
-								632014</p>
+								VIT University,Vellore<br />
+								Tamil Nadu, 632014</p>
 							</section>
 							<section>
 								<h3>Phone</h3>
@@ -194,8 +135,10 @@ from flask_restful import Api, Resource, response</code></pre>
 					</div>
 
 			</div>
+		</div>
 
 		<!-- Scripts -->
+			<script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -204,16 +147,16 @@ from flask_restful import Api, Resource, response</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script>
-				const ipFormInput = document.getElementById('ipAdd');
+				  const ipFormInput = document.getElementById('ipAdd');
 
-			  fetch('https://api.ipify.org?format=json')
-			  .then((response) => { return response.json() })
-			  .then((json) => {
-			  let ip = json.ip;
-			  ipFormInput.value = ip;
-			  })
-			  .catch((err) => { console.log(`Error getting IP Address: ${err}`) })
-		  </script>
+				fetch('https://api.ipify.org?format=json')
+				.then((response) => { return response.json() })
+				.then((json) => {
+				let ip = json.ip;
+				ipFormInput.value = ip;
+				})
+				.catch((err) => { console.log(`Error getting IP Address: ${err}`) })
+			</script>
 
 	</body>
 </html>

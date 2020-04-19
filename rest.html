@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Blog - Abhinav Gorantla</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Abhinav</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">My Projects</a></li>
+							<li class="active"><a href="blog.html">Blog</a></li>
+							<li><a href="#contact">Contact Me</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://twitter.com/Abhinav_Gor" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="https://www.facebook.com/abhinav.gorantla.22" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/abh_nav.skywalker/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="https://github.com/AbhinavGor" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+                        <section class="post">
+                            <header class="major">
+                                <span class="date">December 15, 2019</span>
+                                <h1>Create a REST API</h1>
+                                <p>My first try at creating a REST API.</p>
+                            </header>
+                            <div class="image main"><img src="https://images.unsplash.com/photo-1495592822108-9e6261896da8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" /></div>
+                            <p>This blog is a brief description of the process I followed to create a REST API.Prior knowledge required:</p>
+                            <ol>
+                                <li>Python</li>
+                                <li>Flask framework in Python</li>
+                                <li>Basic knowledge of GET, POST, PUT and DELETE methods</li>
+                            </ol>
+                            <p>I started off reading what actually a REST API was. This is what I found out:</p>
+
+                            <hr>
+                            <blockquote>
+                                A REST Application allows users access some of it's exposed data. This data is exposed with the help of something called an "endpoint". In this way users can access data provided by the developer without compromising sensitive data.
+                            </blockquote>
+                            <hr>
+                            <p>A common example of REST API is the Google search bar we find on some third party websites like <a href = 'https://www.geeksforgeeks.org/'>Geeks for Geeks</a>. You can have a question at this point.</p>
+                            <blockquote>Why can't we use iframes?</blockquote>
+                            <p>Google has doesn't support iframes. You need to use use the Custom Search JSON API to develop websites and applications to retrieve data from a google search. Many other service providers have started doing this. Now let's get back to my project. The next thing I did after knowing what a REST API was that I read some Medium articles on that topic and then started off by taking that as my starting point.
+                            <br/>The actual process:</p>
+                            <pre><code>from flask import Flask
+from flask_restful import Api, Resource, response</code></pre>
+                            <p>Here, we are importing the Flask module. Observe the capital letters in the words Api, Flask and Resource. This shows that we are importing a class. After importing these required modules, we then create a sample data space. Usually for real world applications, we link a database using mySQL but here, for this mini project, a sample data with three or four users will also get the job done.</p>
+                            <pre><code>users = [
+{
+    "uname": "Abhinav",
+    "age":18,
+    "password": "Abhinav123",
+    "branch": "Computer Science",
+    "hostel": "M111"
+},
+{
+    "uname": "Aditya",
+    "age":18,
+    "password": "Aditya123",
+    "branch": "Computer Science",
+    "hostel": "M112"
+},
+{
+    "uname": "Sampath",
+    "age":18,
+    "password": "Sampath123",
+    "branch": "Computer Science",
+    "hostel": "M113"
+}</code></pre>
+                        <p> Next I created a class "Users" which has all the endpoints where data can be accessed using the API. I defined the GET, POST, PUT and DELETE functions. Each of them had different sets of input data i.e different URL endpoints as you will see below. I wanted to design the GET method to make the user sign in with their account. But, as I did not know how to encryot the user passwords, I changed it's function to get the details of the user.</p>
+                        <pre><code>class User(Resource):
+#Used to get details / sign in a user
+
+def get(self, uname, password):
+    for user in users:
+        if(uname == user['uname'] and password == user ["password"]):
+            return "Logged in as {}.".format(user['uname']), 200
+        elif(uname == user['uname'] and password != user['password']);
+            return "Password incorrect."
+        return "User not found", 404</code></pre>
+                        <p>The GET method takes in user password and username as it's inputs and gives out the message "Logged in as {Username}." as output. If the password is wrong then, it returns the message "Password incorrect.". All the other methods are listed below and are self explanatory.</p>
+                        <p>The POST method is used to create a new user.</p>
+                        <pre><code>def post(self, uname, password, age, branch, hostel):
+parser = reqparse.RequestParser()
+parser.add_arguement("age")
+parser.add_arguement("branch")
+parser.add_arguement("password")
+parser.add_arguement("hostel")
+
+for user in users:
+    if(uname == user["uname"]):
+        return "User with name {} already exists.".format(uname), 400
+
+user = {
+    "uname":uname,
+    "age":age,
+    "branch": branch,
+    "hostel":hostel
+}
+users.append(user)
+return user, 201</code></pre>
+                        <p>The PUT method is used to update the data of an existing user.</p>
+                        <pre><code>def put(self, uname, password):
+parser = reqparse.RequestParser()
+parser.add_arguement("age")
+parser.add_arguement("branch")
+parser.add_arguement("password")
+parser.add_arguement("hostel")
+
+for user in users:
+    if(uname == user["uname"]):
+        return ("""Name : {} Age : {} Branch : {} Hostel Block : {}"""\
+        .format(str(user["uname"]), str(user["age"]), str(user["branch"]),\
+         str(user["hostel"]))), 200</code></pre>
+                            <p> You will probably know what the DELETE method is supposed to do.</p>
+                            <pre><code>def delete(self, uname, password):
+global users
+for user in users:
+    if uname == user["uname"]:
+        users = [user for user in users if user["uname"] != uname]
+        return "{} is deleted".format(uname), 200
+    else:
+        return "No user exists with this username."</code></pre>
+                                <p> Now I had a basic API. To make use of it I had to define URLs with endpoints. These endpoints are the data points where the functionswe defines earlier can access their input values. We do this by:</p>
+                                <pre><code>api.add_resource(User, "/user/&lt;string:uname&gt;/&lt;string:password&gt;/&lt;string:branch&gt;\
+/&lt;string:age&gt;/&lt;string:hostel&gt;"\,
+"/user/&lt;string:name&gt;/&lt;string:password&gt;/&lt;string:branch&gt;/&lt;string:age&gt;",\
+"/user/&lt;string:uname&gt;/&lt;string:password&gt;", "/user/&lt;string:uname&gt;/admin")
+                                </code></pre>
+                        </section>
+
+                        <ul class="actions special">
+                            <li><a href="https://github.com/AbhinavGor/Sign-In-REST-API" class="button">View Code</a></li>
+                        </ul>
+
+					</div>
+
+				<!-- Footer -->
+                <footer id="footer">
+                    <section id = 'contact'>
+                        <form  method='POST' data-netlify='true' action='message.html'>
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                                <div class="field">
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="message" rows="3"></textarea>
+                                </div>
+                                <div class="field">
+                                    <input id = 'ipAdd' hidden>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message" /></li>
+                            </ul>
+                        </form>
+                    </section>
+                    <section class="split contact">
+                        <section class="alt">
+                            <h3>Address</h3>
+                            <p>Men's Hostel<br />
+                            VIT University,<br />
+                            Vellore, Tamil Nadu<br/>
+                            632014</p>
+                        </section>
+                        <section>
+                            <h3>Phone</h3>
+                            <p><a href="#">1234567890</a></p>
+                        </section>
+                        <section>
+                            <h3>Email</h3>
+                            <p><a href="#">contact@abhinavgor.com</a></p>
+                        </section>
+                        <section>
+                            <h3>Social</h3>
+                            <ul class="icons alt">
+                                <li><a href="https://twitter.com/Abhinav_Gor" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="https://www.facebook.com/abhinav.gorantla.22" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                                <li><a href="https://www.instagram.com/abh_nav.skywalker/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="https://github.com/AbhinavGor" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            </ul>
+                        </section>
+                    </section>
+                </footer>
+
+            <!-- Copyright -->
+                <div id="copyright">
+                    <ul><li>&copy; 2020 - Abhinav Gorantla</li><li>Design: Abhinav Gorantla</li></ul>
+                </div>
+
+        </div>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script>
+            const ipFormInput = document.getElementById('ipAdd');
+
+          fetch('https://api.ipify.org?format=json')
+          .then((response) => { return response.json() })
+          .then((json) => {
+          let ip = json.ip;
+          ipFormInput.value = ip;
+          })
+          .catch((err) => { console.log(`Error getting IP Address: ${err}`) })
+      </script>
+
+</body>
+</html>
