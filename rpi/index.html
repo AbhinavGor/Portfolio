@@ -39,33 +39,78 @@
                             <header class="major">
                                 <span class="date">January 25, 2020</span>
                                 <h1>NAS Server using a Raspberry Pi 4</h1>
-                                <p>Make Network Accessible Storage Server using a RaspberryPi</p>
+                                <p>Make Network Attached Storage Server using a RaspberryPi</p>
                             </header>
                             <div class="image main"><img src="https://images.unsplash.com/photo-1586920740199-47ce35183cfd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1080&q=60" alt="" /></div>
-                            <p>NAS or Network Accessible Storage </p>
-                            <p>Here is a brief explanation of all the functions I used to build this website and how they work. The website allows users to generate secure passwords. I started up with setting up checkboxes to allow users to select what all sets of characters they want in their passwords. The character set options include:</p>
-                            <pre><code>if(isset($_POST['Uletters']))
-{
-$charset = $charset.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-}
-if(issert($_POST['Lletters']))
-{
-$charset = $charset.'abcdefghijklmnopqrstuvwxyz'
-}
-if(isset($_POST['Numbers']))
-{
-$charset = $charset.'1234567890';
-}
-if(isset($_POST['Special']))
-{
-$charset = $charset.'%$&@!\'\"\\/.,[](){}^~`'
-}
-                        </code></pre>
-                        <p>Users get to select the character select the character sets which get appended to the initial empty set of characters. This set of characters then get passed on to a random string generator. This "random string generator" I'm mentioning here is basically a string shuffler function pre-defined in PHP. The character set that we pass onto the random string generator is nothing but a very long string of integers, characters and special characters. The exact syntax of the code needed to shuffle the string is "str_shuffle($charset)". This set of characters gets shuffled by the inbuilt PHP function and then sent on for further processing. This "further processing" involves MD5 Hashing. </p>
-                        <p>I'm not going to discuss more on <a href = 'https://en.wikipedia.org/wiki/MD5'>MD 5 Hashing</a> as that would compromise the integrity of the website. The form handling method used here is POST method. This ensures that sensitive details aren't given away from the URL. MD5 hashing is also not applied for all the combinations of character sets provided by the user. </p>
-                        <p>The user gets a password according to their needs after submitting the form. This is a screenshot of the final hosted website which you can find here. </p>
-                        <p> My future plans for this project include using better hashing algorithms like SHA 1 or using an actual crytography agorithm instead of a message-digest algorithm like MD5 or SHA.</p>
-                        <p>You can find all the documentation and code for this website <a href = 'https://github.com/AbhinavGor/SafePass.com'>here</a>.</p>
+                            <p>Network-attached storage (NAS) is a file-level (as opposed to block-level) computer data storage server connected to a computer network providing data access to a heterogeneous group of clients. NAS is specialized for serving files either by its hardware, software, or configuration. It is often manufactured as a computer appliance – a purpose-built specialized computer. NAS systems are networked appliances that contain one or more storage drives, often arranged into logical, redundant storage containers or RAID. </p>
+                            <p>Things required:</p>
+                            <ul>
+                                <li>Raspberry Pi 3 or later versions.</li>
+                                <li>WiFi router.</li>
+                                <li>2 Ethernet patch cables.</li>
+                                <li>Micro SD card with <a href='https://www.raspberrypi.org/downloads/noobs/'>NOOBS</a> installed.</li>
+                                <li>Advanced <a href = 'https://www.advanced-ip-scanner.com/'>IP scanner</a>.</li>
+                                <li><a href='https://www.putty.org/'>PuTTY</a></li>
+                            </ul>
+                            <p class = 'box'>For this project you have to completely set up and install any distro of the Raspberry Pi OS on your RaspberryPi.</p>
+                            <h2>SSH into your RaspberryPi</h2>
+                            <ol>
+                                <li>Using Advanced IP scanner scan your network for the RaspberryPi's IP address.</li>
+                                <span class = 'image fit'><img src='./SSH.png' /></span>
+                                <li>In the names column, usually, 'raspberrypi' shows up, but, in exceptional cases, the IP address directly shows up. Save this IP address somewhere to use it later.</li>
+                                <li>Open up PuTTY and enter the IP address of your RaspberryPi. </li>
+                                <span class = 'image'><img src='./PuTTY.png' /></span>
+                                <li>A terminal window should open up and it will ask you for your RaspberryPi username and password. Default username and password are: pi and raspberry.</li>
+                                <li>If your terminal looks like the one shown below, you've succefully executed all the steps listed above. You continue to the next section.</li>
+                                <span class = 'image'><img src='./login.png' /></span>
+                            </ol>
+                            <h2>Install and Setup Samba Server</h2>
+                            <ol>
+                                <li>To share files from our NAS server, we need to install the Samba Package which will contain all the required apps and config files.</li>
+                                <pre><code>$ sudo apt-get install samba samba-commmon-bin</code></pre>
+                                <li>After installation make a directory to put all the shareable files.</li>
+                                <pre><code>$ mkdir /home/pi/INTERNAL</code></pre>
+                                <li>Now, access the config folder of Samba from root.</li>
+                                <pre><code>$ sudo vi /etc/samba/smb.conf</code></pre>
+                                Navigate to the very end of the file and insert the the following lines to configure the "INTERNAL" directory we made earlier.
+                                <pre><code>[INTERNAL]
+comment = internal Files
+browseable = yes
+path = /home/pi/INTERNAL
+writeable = yes
+create mask = 0777
+directory mask = 0777
+browseable = Yes 
+public = yes                               
+                                </code></pre>
+                                <li>Now, create a password for the nework storage we've created.</li>
+                                <pre><code>$ sudo smbpasswd -a <UserNameHere></code></pre>
+                                After creating a new password, for the user, restart the Samba server.
+                                <pre><code>$ sudo /etc/init.d/samba restart</code></pre>
+                                or
+                                <pre><code>$ sudo /etc/init.d/smbd restart</code></pre>
+                                <li>Now let us Map theis folder to a network drive on Windows.</li>
+                                <span class = 'image'><img src='./net1.png' /></span><br />
+                                <span class = 'image'><img src='./net2.png' /></span>
+                                <br />Now, you'll be asked to enter the password you set for the shared folder earlier. Enter the password and a new network drive will show up on your Windows Explorer.
+                                <li>You've now successfully set up a NAS server on your Raspberry Pi. But, the only storage space accessible is the SD Card memory on your RaspberryPi. Proceed to thenext section to tackle this issue.</li>
+                                <h2>Connecting an External Storage Drive</h2>
+                                <ol>
+                                    <li>Connect your external storage drive via the USB slot on your RaspberryPi. Now got the PuTTY terminal and type the command 'lsblk'. You'll be able to see all the connected devices. For this tutorial, I am using a 1TB hard drive.</li>
+                                    <span class = 'image'><img src='./net3.png' /></span><br />
+                                    Here, the  1TB HDD is shown as 'sda' and the NTFS file system partition is shown as 'sda1'.</li>
+                                    <li>To mount this drive, we need to install the "ntfs-3g" package.</li>
+                                    <pre><code>$ sudo apt-get install ntfs-3g</code></pre>
+                                    <li>Now, craete a root folder to mount our external drive.</li>
+                                    <pre><code>$ sudo /EXTERNAL</code></pre>
+                                    <li>Now, to finally mount the external hard drive, enter the following command on the PuTTY terminal.</li>
+                                    <pre><code>$ sudo mount /dev&lt;drive name here&gt; /EXTERNAL</code></pre>
+                                    To find your drive name, enter the following command:
+                                    <pre><code>$ sudo blkid</code></pre>
+                                    <li>If you've followed all the above steps correctly, your drive is now succesffully mounted. To check is your drive mounted properly, enter "df -h" and check if your "EXTERNAL" folder is listed there.</li>
+                                    <li>Now, we have to share this "EXTERNAL" folder for network access. For this, repeat steps 3 through 5 in the "<strong>INSTALL AND SETUP SAMBA SERVER</strong>" SECTION.</li>
+                                </ol>
+                            </ol>
                         </section>
 
                         <ul class="actions special">
