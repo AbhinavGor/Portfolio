@@ -90,14 +90,14 @@ public = yes
                                 or
                                 <pre><code>$ sudo /etc/init.d/smbd restart</code></pre>
                                 <li>Now let us Map theis folder to a network drive on Windows.</li>
-                                <span class = 'image'><img src='./net1.png' /></span><br />
-                                <span class = 'image'><img src='./net2.png' /></span>
+                                <span class = 'image fit'><img src='./net1.png' /></span><br />
+                                <span class = 'image fit'><img src='./net2.png' /></span>
                                 <br />Now, you'll be asked to enter the password you set for the shared folder earlier. Enter the password and a new network drive will show up on your Windows Explorer.
                                 <li>You've now successfully set up a NAS server on your Raspberry Pi. But, the only storage space accessible is the SD Card memory on your RaspberryPi. Proceed to thenext section to tackle this issue.</li>
                                 <h2>Connecting an External Storage Drive</h2>
                                 <ol>
                                     <li>Connect your external storage drive via the USB slot on your RaspberryPi. Now got the PuTTY terminal and type the command 'lsblk'. You'll be able to see all the connected devices. For this tutorial, I am using a 1TB hard drive.</li>
-                                    <span class = 'image'><img src='./net3.png' /></span><br />
+                                    <span class = 'image fit'><img src='./net3.png' /></span><br />
                                     Here, the  1TB HDD is shown as 'sda' and the NTFS file system partition is shown as 'sda1'.</li>
                                     <li>To mount this drive, we need to install the "ntfs-3g" package.</li>
                                     <pre><code>$ sudo apt-get install ntfs-3g</code></pre>
